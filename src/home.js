@@ -4,11 +4,12 @@ import imgHomepage from "./img/coffee-homepage.png";
 
 const createHome = () => {
     const content = document.querySelector("#content");
+    createDivWithId(content, "img-home");
     createDivWithId(content, "home");
     divHome();
 }
 
-const divHome = () => {
+const divHome = () => {    
     const home = document.querySelector("#home");
     createDivWithId(home, "content-home");
     contentHome();
@@ -25,7 +26,13 @@ const contentHome = () => {
     button.addEventListener("click", () => {
         const menuElement = document.querySelector("#menu");
         if (menuElement) {
-            menuElement.scrollIntoView({ behavior: "smooth" });
+            const headerHeight = 40; 
+            const menuPosition = menuElement.offsetTop - headerHeight;
+
+            window.scrollTo({
+                top: menuPosition,
+                behavior: "smooth"
+            });
         }
     });
 }

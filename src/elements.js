@@ -17,7 +17,13 @@ const createNav = (parent, navElements) => {
             button.addEventListener("click", () => {
                 const targetSection = document.getElementById(element.id);
                 if (targetSection) {
-                    targetSection.scrollIntoView({ behavior: "smooth" });
+                    const headerHeight = 40; 
+                    const targetPosition = targetSection.offsetTop - headerHeight;
+        
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: "smooth"
+                    });
                 }
             });
         }
