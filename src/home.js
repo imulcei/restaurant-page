@@ -20,7 +20,14 @@ const contentHome = () => {
 
     createElement(divContentHome, "h1", "Good coffee, good vibes");
     createElement(divContentHome, "p", "At Pulse., we believe in the magic of a great cup of coffee. Nestled in the heart of Brooklyn, our cozy space is crafted for connection and comfort, inviting you to savor each sip. Join us for fresh brews and a warm welcome every day.");
-    createElement(divContentHome, "button", "View Button");
+    const button = createElement(divContentHome, "button", "View Menu");
+
+    button.addEventListener("click", () => {
+        const menuElement = document.querySelector("#menu");
+        if (menuElement) {
+            menuElement.scrollIntoView({ behavior: "smooth" });
+        }
+    });
 }
 
 const coffeeHome = () => {
